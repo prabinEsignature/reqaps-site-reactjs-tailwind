@@ -1,47 +1,49 @@
-import { useEffect, useRef } from "react";
 import { FEATURES_DATA } from "../../data/mockData";
+import useGradientUpdater from "../../hooks/useGradientUpdater";
+import { motion } from "framer-motion";
 
 const Features = () => {
-  const gradientRefs = useRef([]);
-
-  useEffect(() => {
-    const updateGradients = () => {
-      gradientRefs.current.forEach((html, index) => {
-        if (html) {
-          const angle = (performance.now() / 10 + index * 120) % 360;
-          html.style.backgroundImage = `linear-gradient(${angle}deg, rgba(241,178,168,1) 0%, rgba(236,87,168,1) 49%, rgba(91,90,247,1) 100%)`;
-        }
-      });
-      requestAnimationFrame(updateGradients);
-    };
-
-    requestAnimationFrame(updateGradients);
-
-    return () => {};
-  }, []);
-
+  const gradientRefs = useGradientUpdater();
   return (
-    <section className="max-w-[1200px] px-4 mx-auto py-[65px]">
-      <div>
-        <h3 className="text-center text-white font-montserrat text-xl font-semibold">
+    <section className="px-4 lg:py-[65px] py-10">
+      <div className="max-w-[1200px] mx-auto">
+        <h3 className="text-center text-white font-montserrat lg:text-xl md:text-lg text-base font-semibold">
           Say goodbye to manual requirement building. Let Reqops speed things
           up.
         </h3>
-        <div className="grid grid-cols-3 gap-10 mt-[65px]">
+        <div className="grid lg:grid-cols-3 md:grid-cols-2 xxl:gap-10 xl:gap-8 lg:gap-6 gap-4 lg:mt-[65px] mt-10">
           {FEATURES_DATA?.map(({ id, title, image }, index) => {
             return (
-              <div
+              <motion.div
                 key={id}
-                className="bg-grad-theme-135 rounded-3xl p-[3px] min-h-[444px]"
+                className="bg-grad-theme-135 rounded-3xl p-[3px] md:min-h-[444px] min-h-auto"
                 ref={(el) => (gradientRefs.current[index] = el)}
+                initial={{
+                  opacity: 0,
+                  y: 80,
+                }}
+                whileInView={{
+                  opacity: 1,
+                  y: 0,
+                }}
+                transition={{
+                  duration: 0.8,
+                  ease: "easeInOut",
+                }}
               >
                 <div className="rounded-3xl bg-jet flex flex-col justify-between items-center h-full">
-                  <h4 className="mt-8 mb-4 text-2xl text-white font-montserrat text-center font-semibold">
+                  <h4 className="lg:mt-8 md:mt-6 mt-4 mb-4 lg:text-2xl md:text-xl text-lg text-white font-montserrat text-center font-semibold px-4">
                     {title}
                   </h4>
-                  <img className={`px-4 ${index === 1 && "mb-5"} ${index === 2 && "mb-8"}`} src={image} alt="" />
+                  <img
+                    className={`px-4 ${index === 1 && "mb-5"} ${
+                      index === 2 && "mb-8"
+                    }`}
+                    src={image}
+                    alt=""
+                  />
                 </div>
-              </div>
+              </motion.div>
             );
           })}
         </div>

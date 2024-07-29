@@ -11,12 +11,16 @@ export default {
         "errie-black": "#252525",
         "risd-blue": "#5B5AF7",
         "cadet-gray": "#919EAB",
-        'anti-flash-white': "#919EAB",
-        'jet': "#2c2c2c"
+        "anti-flash-white": "#919EAB",
+        jet: "#2c2c2c",
       },
       backgroundImage: {
         "grad-theme-135":
           "linear-gradient(135deg, rgba(241,178,168,1) 0%, rgba(236,87,168,1) 49%, rgba(91,90,247,1) 100%)",
+      },
+      boxShadow: {
+        navbar:
+          "rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;",
       },
     },
   },
