@@ -3,7 +3,7 @@ import { Icons } from "../assets/icons";
 import routeConstants from "../constants/routeConstants";
 import { MdMenu } from "react-icons/md";
 import { IoMdClose } from "react-icons/io";
-
+import { motion } from "framer-motion"
 import { useState } from "react";
 
 const Header = () => {

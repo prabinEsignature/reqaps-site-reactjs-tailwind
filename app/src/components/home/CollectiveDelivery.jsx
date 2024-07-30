@@ -29,6 +29,9 @@ const CollectiveDelivery = () => {
                 duration: 0.8,
                 ease: "easeInOut",
               }}
+              whileHover={{
+                scale: 1.05
+              }}
             >
               <img src={icon} className="w-[82px] h-[82px] mx-auto" alt="" />
               <h4 className="font-montserrat lg:mt-10 md:mt-6 mt-4 lg:mb-4 mb-2 font-semibold lg:text-xl md:text-lg text-base">

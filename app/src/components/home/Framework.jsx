@@ -46,17 +46,20 @@ const Framework = () => {
                 className="bg-grad-theme-135 rounded-3xl p-[3px]"
                 ref={(el) => (gradientRefs.current[index] = el)}
                 initial={{
-                    opacity: 0,
-                    y: 80,
-                  }}
-                  whileInView={{
-                    opacity: 1,
-                    y: 0,
-                  }}
-                  transition={{
-                    duration: 0.8,
-                    ease: "easeInOut",
-                  }}
+                  opacity: 0,
+                  y: 80,
+                }}
+                whileInView={{
+                  opacity: 1,
+                  y: 0,
+                }}
+                transition={{
+                  duration: 0.5,
+                  ease: "easeInOut",
+                }}
+                whileHover={{
+                  scale: 1.02,
+                }}
               >
                 <div
                   className={`rounded-3xl bg-jet h-full grid items-center md:grid-cols-2 ${

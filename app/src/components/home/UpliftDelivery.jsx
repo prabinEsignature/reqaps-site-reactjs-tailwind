@@ -27,8 +27,11 @@ const UpliftDelivery = () => {
                     y: 0,
                   }}
                   transition={{
-                    duration: 0.8,
+                    duration: 0.5,
                     ease: "easeInOut",
+                  }}
+                  whileHover={{
+                    scale: 1.05
                   }}
                 >
                   <div className="rounded-3xl bg-jet flex flex-col items-start h-full lg:p-8 md:p-6 p-4">
